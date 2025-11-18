@@ -25,11 +25,6 @@ import {
 
 const router = express.Router();
 
-router.get("/api/test", (req, res) => {
-  res.json({ message: "Backend funcionando!" });
-});
-
-
 router.get('/todosviajes', authUserOptionalController, filterTripController);
 
 router.get('/posts', authUserOptionalController, getAllPostsController);
