@@ -34,5 +34,5 @@ app.use(notFoundController);
 app.use(errorController);
 
 app.listen(PORT, () => {
-    console.log(`Servidor escuchando en el puerto http://localhost:${PORT}`);
+    console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
