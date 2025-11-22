@@ -8,12 +8,12 @@ import { deleteFileError, saveFileError } from './errorService.js';
 
 export const savePhoto = async (file, width) => {
     try {
-        const uploadsDir = path.join(process.cwd(), UPLOADS_DIR);
+        const uploadsDir = UPLOADS_DIR;
 
         try {
             await fs.access(uploadsDir);
         } catch {
-            await fs.mkdir(uploadsDir);
+            await fs.mkdir(uploadsDir, { recursive: true });
         }
 
         const sharpImg = sharp(file.photo.data);
@@ -35,7 +35,7 @@ export const savePhoto = async (file, width) => {
 
 export const deletePhoto = async (imgName) => {
     try {
-        const imgPath = path.join(process.cwd(), UPLOADS_DIR, imgName);
+        const imgPath = path.join(UPLOADS_DIR, imgName);
 
         try {
             await fs.access(imgPath);
